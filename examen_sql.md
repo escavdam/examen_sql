@@ -27,19 +27,38 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
 6. ¿Como puedes saber que tablas existen en la base de datos?
 
+`usando ".table"`
+
 7. ¿Como puedes saber de que datos se componen las tablas?
+
+`usando el comando "SELECT * FROM"`
 
 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
 
+`usando "SELECT * FROM Usuarios LIMIT 5;"`
+
 9. Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
+
+`"SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;"`
 
 10. Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
 
+` "SELECT COUNT(DISTINCT cuidad) FROM usuarios;"`
+
 11. Devuelve los usuarios con un balance superior a 10.000€ en España.
+
+`"SELECT * FROM usuarios WHERE balance > 10000 AND pais = 'España';"`
 
 12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
 
+`SELECT u.nombre AS 'Nombre del Usuario', p.nombre AS 'Nombre del Producto'`
+`FROM usuarios u`
+`JOIN pedidos pd ON u.id = pd.usuario`
+`JOIN productos p ON pd.producto = p.id;`
+
 13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
+
+`el junior que se ha metido ha hecho una update en la tabla de usuarios añadiendole el rol de hacker a alguien ramdon de la tabla, solo a una persona.`
 
 ~~~plain
 07MAY2024[18:32:12]: user #2831 logged in!
