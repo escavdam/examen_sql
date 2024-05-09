@@ -66,3 +66,22 @@ QUE CAMBIO HA HECHO Y COMO LO CORREGIRIAMOS encuentraR la celda que ha cambiado
 07MAY2024[18:32:21]: 1 row updated in table 'usuarios'!
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
+
+Para encontrar el hacker usaremos el comando:
+```sql
+SELECT DISTINCT(rol) FROM usuarios;
+```
+Donde vemos que ha creado un nuevo rol de hacker, seleccionamos el rol de hacker para ver que usuario es:
+```sql
+SELECT * FROM usuarios WHERE rol='hacker'
+```
+Hacemos un UPDATE del rol hacker al que tenia anteriormente:
+```sql
+UPDATE usuarios
+SET rol = 'usuarios'
+WHERE id = (
+  SELECT id
+  FROM usuarios
+  WHERE rol = 'hacker'
+);
+```

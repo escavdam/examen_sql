@@ -1,4 +1,6 @@
-
+DROP TABLE IF EXISTS usuarios;
+DROP TABLE IF EXISTS mensajes;
+DROP TABLE IF EXISTS followers;
 
 
 CREATE TABLE usuarios(
@@ -8,12 +10,12 @@ CREATE TABLE usuarios(
     puntos INTEGER NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS mensajes(   
+CREATE TABLE mensajes(   
     id INTEGER NOT NULL UNIQUE PRIMARY KEY,
     mensaje TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS followers (
+CREATE TABLE followers (
     seguidor_id INTEGER NOT NULL,
     seguido_id INTEGER NOT NULL,
     PRIMARY KEY (seguidor_id, seguido_id),
