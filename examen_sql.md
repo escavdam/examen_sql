@@ -27,27 +27,27 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
 6. ¿Como puedes saber que tablas existen en la base de datos?
 
-  Abriendo el archivo .db escribiendo '.tables'
+  Abriendo el archivo .db escribiendo ``.tables``
 
 7. ¿Como puedes saber de que datos se componen las tablas?
 
-  '.schema'
+  ``.schema``
 
 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
 
-  'SELECT * FROM usuarios LIMIT 5;'
+  ``SELECT * FROM usuarios LIMIT 5;``
 
 9.  Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
 
-  'SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;'
+  ``SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;``
 
 10.  Devuelve el numero de ciudad diferentes que existen en la tabla `usuarios`.
   
-  'SELECT COUNT(DISTINCT ciudad) FROM usuarios;'
+  ``SELECT COUNT(DISTINCT ciudad) FROM usuarios;``
 
 11.   Devuelve los usuarios con un balance superior a 10.000€ en España.
 
-  'SELECT * FROM usuarios WHERE balance > 10000'
+``SELECT * FROM usuarios WHERE balance > 10000``
 
 12.  Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
     
@@ -73,14 +73,17 @@ JOIN
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
 Sentencia de js
+
 `db[_0xf92878(0x239)]('UPDATE\x20usuarios\x20SET\x20rol\x20=\x20\x27hacker\x27\x20WHERE\x20id\x20IN\x20(SELECT\x20id\x20FROM\x20usuarios\x20ORDER\x20BY\x20RANDOM()\x20LIMIT\x201);')[_0xf92878(0x217)]();
 `
 
 primero revisar todos los redes que existan y analizar si alguno se sale de la norma.
-'SELECT DISTINCT(rol) FROM usuarios;'
+
+``SELECT DISTINCT(rol) FROM usuarios;``
 
 encontrar al / los usuarios con este rol.
-'SELECT * FROM usuarios WHERE rol = 'hacker';'
+
+``SELECT * FROM usuarios WHERE rol = 'hacker';``
 
 y ahora para corregir esto, debo dehacer un UPDATE del rol para ponerlo al que deba.
 
