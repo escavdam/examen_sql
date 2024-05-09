@@ -27,19 +27,44 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
 6. ¿Como puedes saber que tablas existen en la base de datos?
 
+  Abriendo el archivo .db escribiendo '.tables'
+
 7. ¿Como puedes saber de que datos se componen las tablas?
+
+  '.schema'
 
 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
 
-9. Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
+  'SELECT * FROM usuarios LIMIT 5;'
 
-10. Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
+9.  Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
 
-11. Devuelve los usuarios con un balance superior a 10.000€ en España.
+  'SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;'
 
-12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
+10.  Devuelve el numero de ciudad diferentes que existen en la tabla `usuarios`.
+  
+  'SELECT COUNT(DISTINCT ciudad) FROM usuarios;'
 
-13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
+11.   Devuelve los usuarios con un balance superior a 10.000€ en España.
+
+  'SELECT * FROM usuarios WHERE balance > 10000'
+
+12.  Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
+    
+```SQL
+CREATE TABLE productos_comprados AS
+SELECT
+    productos.nombre AS nombre_producto,
+    usuarios.nombre AS nombre_usuario
+FROM
+    pedidos
+JOIN
+    productos ON pedidos.producto = productos.id
+JOIN
+    usuarios ON pedidos.usuario = usuarios.id;
+```
+
+13.  Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 
 ~~~plain
 07MAY2024[18:32:12]: user #2831 logged in!
