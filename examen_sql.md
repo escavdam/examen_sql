@@ -26,20 +26,39 @@ Guarda tu inicio como `init_usuarios.sql`, asegúrate de borrar toda base de dat
 Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
 6. ¿Como puedes saber que tablas existen en la base de datos?
-
+``` SQL 
+.tables 
+```
 7. ¿Como puedes saber de que datos se componen las tablas?
-
+``` SQL
+SELECT * FROM nombre_de_la_tabla;
+ ```
 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
-
+``` SQL
+SELECT * FROM usuarios LIMIT 5;
+ ```
 9. Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
+``` SQL
+SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;
+ ```
+10.   Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
+``` SQL
+ SELECT DISTINCT (ciudad) FROM usuarios;
+ ```
+11.   Devuelve los usuarios con un balance superior a 10.000€ en España.
+``` SQL
+SELECT * FROM usuarios WHERE balance > 10000;
+ ```
+12.    Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
+ ``` SQL   
+SELECT u.nombre AS nombre_usuario, p.nombre AS nombre_producto, p.precio, p.stock, pd.cantidad
+FROM pedidos pd
+INNER JOIN usuarios u ON pd.usuario = u.id
+INNER JOIN productos p ON pd.producto = p.id;
 
-10. Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
+ ```
 
-11. Devuelve los usuarios con un balance superior a 10.000€ en España.
-
-12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
-
-13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
+13.   Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 
 ~~~plain
 07MAY2024[18:32:12]: user #2831 logged in!
@@ -47,3 +66,4 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 07MAY2024[18:32:21]: 1 row updated in table 'usuarios'!
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
+Lo que ha pasado es que han añadido un rol de Hacker, y han modificado la columna de roles, donde se ve que ha añadido el rol de hacker de manera random.
