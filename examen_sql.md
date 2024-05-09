@@ -67,3 +67,5 @@ INNER JOIN productos p ON pd.producto = p.id;
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
 Lo que ha pasado es que han añadido un rol de Hacker, y han modificado la columna de roles, donde se ve que ha añadido el rol de hacker de manera random.
+
+Para arreglarlo No permitiría que el rol sea actualizado directamente a través de consultas SQL como la que hemos mostrado en el primer mensaje. En su lugar, manejamos la asignación de roles en el código de tu aplicación, donde tengas más control sobre quién tiene qué rol o antes de permitir que se actualice el rol de un usuario en la base de datos, asegúrarnos de validar y autorizar esta acción adecuadamente en el nivel de la aplicación, sobre todo para comprobar que el usuario tiene los permisos adecuados para actualizar el rol.
