@@ -26,19 +26,45 @@ Guarda tu inicio como `init_usuarios.sql`, asegúrate de borrar toda base de dat
 Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
 6. ¿Como puedes saber que tablas existen en la base de datos?
+      
+      comando
+      . tables
 
 7. ¿Como puedes saber de que datos se componen las tablas?
-
+      
+      comando
+      ´´´SQL
+       SELECT * FROM usuarios;
+      ´´´
 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
-
+     
+     comando
+     ´´´SQL
+      SELECT * FROM usuarios LIMIT 5;
+     ´´´
 9. Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
-
-10. Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
-
+     
+     comando
+     ´´´SQL
+     SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;
+     ´´´
+10. Devuelve el numero de ciudades diferentes que existen en la tabla `usuarios`.
+     
+     comando
+     ´´´SQL
+     SELECT COUNT (DISTINCT ciudad) FROM usuarios;
+     ´´´
 11. Devuelve los usuarios con un balance superior a 10.000€ en España.
-
+     
+     comando
+     ´´´SQL
+      SELECT * FROM usuarios WHERE balance > 10000;
+     ´´´
 12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
-
+     comando
+     ´´´SQL
+      SELECT usuarios.nombre, pedidos.producto AS ProductosComprados FROM usuarios JOIN pedidos ON usuarios.nombre = pedidos.id
+     ´´´
 13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 
 ~~~plain
