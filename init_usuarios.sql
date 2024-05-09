@@ -19,7 +19,7 @@ CREATE TABLE mensajes(
 CREATE TABLE followers(
     usuario_seguidor_id INTEGER NOT NULL,
     usuario_seguido_id INTEGER NOT NULL,
-     PRIMARY KEY (usuario_seguidor_id, usuario_seguido_id),
+    PRIMARY KEY (usuario_seguidor_id, usuario_seguido_id),
     FOREIGN KEY (usuario_seguidor_id) REFERENCES usuarios(id),
     FOREIGN KEY (usuario_seguido_id) REFERENCES usuarios(id)
 );
