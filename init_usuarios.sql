@@ -1,4 +1,7 @@
 -- Dropear las tablas por si existen
+DROP TABLE IF EXISTS mensajes;
+DROP TABLE IF EXISTS usuarios;
+DROP TABLE IF EXISTS followers;
 
 -- Crear 3 tipos de tablas
 CREATE TABLE usuarios(
@@ -13,9 +16,12 @@ CREATE TABLE mensajes(
     mensaje TEXT NOT NULL
 );
 
--- CREATE TABLE followers(
---     id INTEGER NOT NULL UNIQUE PRIMARY KEY AUTOINCREMENT,
--- );
+CREATE TABLE followers(
+    usuario_seguidor_id INTEGER NOT NULL PRIMARY KEY,
+    usuario_seguido_id INTEGER NOT NULL PRIMARY KEY,
+    FOREIGN KEY (usuario_seguidor_id) REFERENCES usuarios(id),
+    FOREIGN KEY (usuario_seguido_id) REFERENCES usuarios(id)
+);
 
 -- Insertar al menos 3 usuarios
 INSERT INTO usuarios (nombre, password, puntos) VALUES 
@@ -27,6 +33,12 @@ INSERT INTO usuarios (nombre, password, puntos) VALUES
 INSERT INTO mensajes (mensaje) VALUES 
 ('Hola Pepito, ¿que tal estas?'),
 ('Bien, me gusta el furbo');
+
+-- Insertar seguimientos
+INSERT INTO followers (usuario_seguidor_id, usuario_seguido_id) VALUES 
+(1, 2),
+(2, 3),
+(3, 1);
 
 --Actualizar los usuarios
 UPDATE usuarios
