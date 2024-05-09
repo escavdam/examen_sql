@@ -78,7 +78,7 @@ SELECT * FROM usuarios WHERE rol='hacker'
 Hacemos un UPDATE del rol hacker al que tenia anteriormente:
 ```sql
 UPDATE usuarios
-SET rol = 'usuarios'
+SET rol = 'usuario'
 WHERE id = (
   SELECT id
   FROM usuarios
