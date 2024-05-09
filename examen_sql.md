@@ -73,3 +73,38 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 07MAY2024[18:32:21]: 1 row updated in table 'usuarios'!
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
+
+Primero de todo revisamos la tabla de usuarios desde sql mirando y analizando los tipos de datos que tenemos, despues de esto nos damos cuenta que la columna de roles podria ser la unica que puede tener un cambio asi que haremos lo siguiente
+
+´´´SQL
+SELECT DISTINCT(rol) from usuarios;
+´´´
+Con esto veremos todo los roles que tenemos esto 
+┌─────────┐
+│   rol   │
+├─────────┤
+│ dev     │
+│ user    │
+│ premium │
+│ admin   │
+│ usuario │
+│ hacker  │
+└─────────┘
+y nos percatamos que hay un rol de "hacker" asi que nos ponemos a mano y hacemos lo siguiente 
+
+´´´SQL
+SELECT * FROM usuarios WHERE rol = 'hacker';
+´´´
+┌─────┬───────────────┬───────────────┬──────┬────────┬─────────────────────────┬─────────┬────────┐
+│ id  │    nombre     │   password    │ edad │ ciudad │          email          │ balance │  rol   │
+├─────┼───────────────┼───────────────┼──────┼────────┼─────────────────────────┼─────────┼────────┤
+│ 519 │ pona-hyper054 │ sneakultra664 │ 81   │ Toledo │ pona-hyper054@yahoo.com │ 67444.0 │ hacker │
+└─────┴───────────────┴───────────────┴──────┴────────┴─────────────────────────┴─────────┴────────┘
+
+cuando lo hagamos veremos esta tabla asi que nos pondremos manos a la obra y usaremos esto 
+
+´´´SQL
+UPDATE usuarios 
+SET rol = 'user'
+WHERE id = '519';
+´´´
