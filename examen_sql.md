@@ -81,3 +81,14 @@ JOIN productos ON pedidos.producto = productos.id;
 ~~~
 
 Entiendo que el cambio se ha realizado en una columna en la tabla de 'usuarios' en la que se ha actualizado.
+Sabemos que el rol random es Hacker que se asigna a cada usuario aleatoriamente.
+Para corregirlo podriamos hacerlo así:
+```sql
+UPDATE usuarios
+SET rol = 'usuario'
+WHERE id = (
+  SELECT id
+  FROM usuarios
+  WHERE rol = 'hacker'
+);
+```
