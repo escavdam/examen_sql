@@ -56,3 +56,6 @@ WHERE ID = 3;
 SELECT * FROM usuarios;
 SELECT * FROM mensajes;
 SELECT * FROM followers;
+
+-- La tabla de usuarios utiliza id's para identificar sus usuarios, pero no utiliza la propiedad AUTOINCREMENT para gestionar su valor.
+-- La tabla mensajes usa de referencia los nombres de la tabla usuarios en lugar de su ID, puede funcionar, pero deberias utilizar un ID autoincremental, que es lo que realmente identifica cada entrada, utilizar nombres puede ralentizar las queries.

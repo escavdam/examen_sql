@@ -29,6 +29,8 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
    
    Hay 4 tablas que existen en la base de datos `tienda.db`. Podemos saber con el codigo seguido : `SELECT COUNT(*) FROM sqlite_master WHERE type='table';`
 
+   Corrección: Podemos usar `.table` mas rápido. Si prefieres usar `SQL`, con `SELECT * FROM sqlite_master WHERE type='table';` es más correcto, ya que se pide *que* tablas, no *cuantas*.
+
 7. ¿Como puedes saber de que datos se componen las tablas? 
   
   Peudo saber los datos que componen las tablas con el condigo `.Schema`
@@ -45,17 +47,27 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
     
     hay 49 ciudades. Un nombre obtinado con el codigo siguento: ` SELECT DISTINCT ciudad FROM usuarios;`
 
+    Corrección:
+    El numero de ciudades es correcto, pero el script no, deberia ser `select count(distinct(ciudad)) from usuarios;`.
+
 11. Devuelve los usuarios con un balance superior a 10.000€ en España.
 
     Puedo devuelvar los usuarios con un balance superior a 10.000 euro en España con el codigo sigueto: `SELECT * FROM usuarios WHERE balance > 10000;`
 
 12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
     
-    P
+    Corrección:
+    ```sql
+    SELECT productos.nombre, usuarios.nombre
+    FROM productos
+    JOIN pedidos ON productos.id = pedidos.producto
+    JOIN usuarios ON pedidos.usuario = usuarios.id;
+    ```
 
 13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 
     El junior furioso estaba el usuario `sneak_dude129`, que `tienda.db` lo da el rol de `Hacker`. Gracias al codigo sigiente : `SELECT DISTINCT nombre FROM usuarios WHERE rol = 'hacker';`
+
 
 ~~~plain
 07MAY2024[18:32:12]: user #2831 logged in!
@@ -63,3 +75,6 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 07MAY2024[18:32:21]: 1 row updated in table 'usuarios'!
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
+
+Nota:
+El examen está bien, se nota que conoces SQL, pero sigues teniendo descuidos muy tontos que te cuestan puntos, ten cuidado!
