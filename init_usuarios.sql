@@ -36,3 +36,11 @@ INSERT INTO followers (usuario, follow) VALUES ('Estiven', 'Lucas');
 INSERT INTO followers (usuario, follow) VALUES ('Lucas', 'Javi');
 
 UPDATE usuarios SET nombre = 'Camacho' WHERE password = 'camachops';
+
+-- en la tabla mensajes, se referencia como foreign key los nombres de la tabla, deberian ser los id's, que es lo que usamos como primary key en la tabla usuarios.
+
+-- en la tabla followers, se referencia como foreign key los nombres de la tabla, deberian ser los id's, que es lo que usamos com primary key en la tabla usuarios.
+
+-- en la tabla followers, el usuario seguido no debe ser unico
+
+-- el script funciona bien y vuelve a crear la base de datos aunque ya exista, genial!

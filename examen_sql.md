@@ -31,6 +31,8 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 7. ¿Como puedes saber de que datos se componen las tablas?
 `SELECT * FROM ${nombre de la tabla}`
 
+Corrección: Podemos saberlo con `.tables`
+
 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
 `SELECT * FROM usuarios LIMIT 5`
 
@@ -40,11 +42,14 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 10. Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
 `SELECT DISTINCT(ciudad) FROM usuarios;`
 
+Corrección: Sería `SELECT COUNT(DISTINCT(ciudad)) FROM usuarios`.
+
 11. Devuelve los usuarios con un balance superior a 10.000€ en España.
 `SELECT * FROM usuarios WHERE balance > 10000`
 
 12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
-`SELECT u.nombre AS nombre_usuario, p.nombre AS nombre_producto, p.precio, p.stock, pd.cantidad
+`
+SELECT u.nombre AS nombre_usuario, p.nombre AS nombre_producto, p.precio, p.stock, pd.cantidad
 FROM pedidos pd
 INNER JOIN usuarios u ON pd.usuario = u.id
 INNER JOIN productos p ON pd.producto = p.id;`
@@ -60,3 +65,12 @@ INNER JOIN productos p ON pd.producto = p.id;`
 
 Este "junior" ha hecho un cambio de rol a un elemento en la tabla de usuaios poniéndole el rol de hacker de forma random. Para averiguarlo he seleccionado primero todos los roles diferentes en esta tabala y he observado que el rol de hacker solo lo tiene un usuario.
 Para arrglarlo le mando el comando siguiente: `UPDATE usuarios SET rol = 'user' WHERE id = 4020;`.
+
+Corrección: Cuidado con la redacción de estos procesos, en el primer párrafo das a entender que seleccionas todos los roles diferentes con distinct, asi que no tiene mucho sentido que ahi tambien veas que solo hay un usuario con ese rol, se detallado y aporta codigo para explicar los procesos que has seguido.
+
+Por otro lado, aunque eso funciona, esto quizá es más fácil:
+`UPDATE usuarios SET rol = 'user' WHERE rol = 'hacker`
+
+Notas:
+
+El examen está bien, aunque has tenido algunos despistes sin mucha importancia, creo que entendiste SQL bastante bien, dale duro!
