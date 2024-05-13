@@ -49,3 +49,8 @@ UPDATE `usuarios`
 SET `password` = 'NuevaContraseña',
     `puntos` = 50  
 WHERE `id` = 1;
+
+
+-- El script falla si se intenta ejecutar con la base de datos ya creada
+-- El autor de los mensajes deberia ser una foreign key
+-- La primary key de la tabla de followers deberia ser un id autoincremental, no podemos usar dos ids para identificar una entrada

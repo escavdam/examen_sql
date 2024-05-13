@@ -48,8 +48,8 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 11.   Devuelve los usuarios con un balance superior a 10.000€ en España.
 
 ``SELECT * FROM usuarios WHERE balance > 10000``
-
-12.  Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
+👍👎
+👎 12.  Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
     
 ```SQL
 CREATE TABLE productos_comprados AS
@@ -64,6 +64,8 @@ JOIN
     usuarios ON pedidos.usuario = usuarios.id;
 ```
 
+No hace falta crear tablas, solo mostrar los datos, tampoco necesitamos alias para las columnas.
+
 13.  Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 
 ~~~plain
@@ -74,8 +76,7 @@ JOIN
 ~~~
 Sentencia de js
 
-`db[_0xf92878(0x239)]('UPDATE\x20usuarios\x20SET\x20rol\x20=\x20\x27hacker\x27\x20WHERE\x20id\x20IN\x20(SELECT\x20id\x20FROM\x20usuarios\x20ORDER\x20BY\x20RANDOM()\x20LIMIT\x201);')[_0xf92878(0x217)]();
-`
+`db[_0xf92878(0x239)]('UPDATE\x20usuarios\x20SET\x20rol\x20=\x20\x27hacker\x27\x20WHERE\x20id\x20IN\x20(SELECT\x20id\x20FROM\x20usuarios\x20ORDER\x20BY\x20RANDOM()\x20LIMIT\x201);')[_0xf92878(0x217)]();`
 
 primero revisar todos los redes que existan y analizar si alguno se sale de la norma.
 
@@ -90,3 +91,7 @@ y ahora para corregir esto, debo dehacer un UPDATE del rol para ponerlo al que d
 `UPDATE usuarios
 SET rol = 'usuario'
 WHERE rol = 'hacker';`
+
+Nota:
+
+El examen está muy bien! Solo un detalle, en la pregunta 12, no hace falta crear una tabla, solo mostrar los datos. Tampoco necesitamos alias para las columnas. Por lo demás, todo perfecto! 👍
