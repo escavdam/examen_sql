@@ -42,3 +42,7 @@ INSERT INTO followers (id_usuario_seguidor, id_usuario_seguido) VALUES
 (3, 1);
 
 UPDATE usuarios SET nombre = 'pepo' WHERE id = 1;
+
+-- esta genial! le has pillado el rollo a SQL muy bien, las tablas estan bien estructuradas, las primary keys tienen sentido y las foreign keys igual!
+
+-- solo te diria que en las sentencias de insercion de usuarios, no es necesario que añadas el id, deja que el autoincremento se ocupe.

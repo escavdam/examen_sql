@@ -33,30 +33,39 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 ``` SQL
 SELECT * FROM nombre_de_la_tabla;
  ```
+Corrección: `.schema`
+
 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
 ``` SQL
 SELECT * FROM usuarios LIMIT 5;
  ```
+
 9. Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
 ``` SQL
 SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;
- ```
+```
 10.   Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
 ``` SQL
  SELECT DISTINCT (ciudad) FROM usuarios;
  ```
+Corrección:
+`SELECT COUNT(DISTINCT(ciudad)) FROM usuarios`
+Recuerda que se pide el *numero* de paises, no las diferentes entradas que existen.
+
 11.   Devuelve los usuarios con un balance superior a 10.000€ en España.
 ``` SQL
 SELECT * FROM usuarios WHERE balance > 10000;
  ```
+
 12.    Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
  ``` SQL   
 SELECT u.nombre AS nombre_usuario, p.nombre AS nombre_producto, p.precio, p.stock, pd.cantidad
 FROM pedidos pd
 INNER JOIN usuarios u ON pd.usuario = u.id
 INNER JOIN productos p ON pd.producto = p.id;
-
  ```
+
+Nota: Ojo! no se pide el stock ni la cantidad pedida
 
 13.   Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 
