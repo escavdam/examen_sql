@@ -40,3 +40,11 @@ INSERT INTO followers (seguidor_id, seguido_id) VALUES
 UPDATE usuarios
 SET password = 'nuevacontraseña'
 WHERE nombre = 'Manolo';
+
+-- En la tabla de followers añades como PRIMARY KEY la combinación de seguidor_id y seguido_id, esto no tiene sentido en la estructura de la base de datos, no es necesario identificar cada seguimiento de usuarios que existe, pero en caso de que se quiera hacer, se puede hacer con un id autoincremental.
+
+-- En la tabla de usuarios, el id debería ser un campo autoincremental, para que no se tenga que especificar en cada inserción, hacer esto puede llevar a inconsistencias en la base de datos y la manipulación de los datos.
+
+-- En las sentencias de insercion de usuarios y mensajes faltan comas para separar los valores, el archivo no se ejecuta correctamente.
+
+-- Ten cuidado, hay bastantes inconsistencias en la estructura, revísala bien.

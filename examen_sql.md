@@ -45,18 +45,20 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
 `SELECT COUNT(DISTINCT ciudad) AS num_ciudades FROM usuarios;`
 
+Solo necesitas `SELECT COUNT(DISTINCT ciudad) FROM usuarios;`, en este caso dar un alias no es necesario.
+
 11. Devuelve los usuarios con un balance superior a 10.000€.
 
 `SELECT * FROM usuarios WHERE balance > 10000;`
 
-12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
+👎 12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
 ```sql
 SELECT usuarios.nombre AS nombre_usuario, producto.nombre AS nombre_producto
 FROM usuarios
 JOIN pedidos ON usuarios.id = pedidos.usuario
 JOIN productos ON pedidos.producto = pedidos.id;
 ```
-
+👍👎
 
 13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 QUE CAMBIO HA HECHO Y COMO LO CORREGIRIAMOS encuentraR la celda que ha cambiado
@@ -85,3 +87,7 @@ WHERE id = (
   WHERE rol = 'hacker'
 );
 ```
+
+Nota: 7
+
+El examen está bien, pero este trimestre te has descuidado mucho y se nota, revisa bien SQL, es muy importante saber interactuar con bases de datos.
