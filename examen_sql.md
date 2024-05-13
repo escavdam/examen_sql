@@ -25,43 +25,43 @@ Guarda tu inicio como `init_usuarios.sql`, asegúrate de borrar toda base de dat
 
 Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
-**6.** ¿Como puedes saber que tablas existen en la base de datos?
+👍 **6.** ¿Como puedes saber que tablas existen en la base de datos?
   
 Que las tablas existen se puede saber con el siguiente comando: `.tables`.
 
-**7.** ¿Como puedes saber de que datos se componen las tablas?
+👍 **7.** ¿Como puedes saber de que datos se componen las tablas?
 
 Los datos de los que se componen las tablas es el siguiente: `.schema` o si queremos alguna en específico podemos usar `.schema nombre_de_la_tabla`.
 
-**8.** Devuelve los 5 primeros usuarios de la tabla `usuarios`.
+👍 **8.** Devuelve los 5 primeros usuarios de la tabla `usuarios`.
 
 Así se devuelven los 5 primeros usuarios: 
 ```sql
 SELECT * FROM usuarios LIMIT 5;
 ```
 
-**9.** Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
+👍 **9.** Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
 
 Así se devuelven los 5 primeros usuarios de forma descendente por su balance: 
 ```sql
 SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;
 ```
 
-**10.** Devuelve el número de paises diferentes que existen en la tabla `usuarios`.
+👍 **10.** Devuelve el número de paises diferentes que existen en la tabla `usuarios`.
 
 Así se devuelve el número de paises diferentes: 
 ```sql
 SELECT COUNT(DISTINC ciudad) AS ciudades FROM usuarios;
 ```
 
-**11.** Devuelve los usuarios con un balance superior a 10.000€ en España.
+👍 **11.** Devuelve los usuarios con un balance superior a 10.000€ en España.
 
 Se devuelve de la siguiente manera: 
 ```sql 
 SELECT * FROM usuarios WHERE ciudad = 'Madrid' AND balance > 10000;
 ```
 
-**12.** Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
+👍 **12.** Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
 
 Se devuelve de la siguiente manera: 
 ```sql
@@ -71,7 +71,7 @@ JOIN pedidos ON usuarios.id = pedidos.usuario
 JOIN productos ON pedidos.producto = productos.id;
 ```
 
-**13.** Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
+👍 **13.** Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 
 ~~~plain
 07MAY2024[18:32:12]: user #2831 logged in!
@@ -92,3 +92,5 @@ WHERE id = (
   WHERE rol = 'hacker'
 );
 ```
+
+Nota: 9

@@ -44,4 +44,9 @@ INSERT INTO followers (usuario_seguidor_id, usuario_seguido_id) VALUES
 --Actualizar los usuarios
 UPDATE usuarios
 SET nombre='usuario1', password='holamundo123'
-WHERE id = 2;  
+WHERE id = 2; 
+
+
+-- Se podría añadir el id del usuario en la tabla de mensajes, esto es lo ideal en el ejercicio.
+-- Añadir las clausulas "IF NOT EXISTS" durante la creacion de las tablas para evitar errores si se ejecuta el script varias veces, aunque en este caso funciona, es una buena practica.
+-- Está muy bien! Le has pillado el rollo a SQL, enhorabuena! :D
