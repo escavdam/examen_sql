@@ -33,6 +33,8 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
 `usando el comando "SELECT * FROM"`
 
+Corrección: Eso nos devuelve los datos, si queremos saber de qué estan compuestas nuestras tablas, podemos usar `.schema`.
+
 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
 
 `usando "SELECT * FROM Usuarios LIMIT 5;"`
@@ -44,6 +46,9 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 10. Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
 
 ` "SELECT COUNT(DISTINCT cuidad) FROM usuarios;"`
+
+Corrección:
+`SELECT COUNT(DISTINCT(ciudad)) FROM usuarios;`
 
 11. Devuelve los usuarios con un balance superior a 10.000€ en España.
 
@@ -66,3 +71,7 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 07MAY2024[18:32:21]: 1 row updated in table 'usuarios'!
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
+
+Notas:
+
+El examen está bien! se nota que controlas de SQL, pero ten cuidado con esos despistes locos que tienes a veces, esos descuidos te pueden hacer parecer más junior de lo que realmente eres, machaca un poquito los join, trabaja con calma y lo harás aun mejor.

@@ -41,5 +41,12 @@ INSERT INTO Followers (id_follower, id_followee) VALUES (3, 1);
 
 UPDATE Usuarios SET nombre = 'idaira' WHERE id = 1;
 
+-- Faltarian unas sentencias de DROP TABLE al principio de todo, para poder resetear la base de datos durante el desarrollo facilmente.
 
+-- Utiliza autoincrementos para tus id's en las tablas, no es necesario gestionarlas nosotros a mano.
 
+-- Y si no los utilizas, deberías escribir el id a mano cuando insertas usuarios :)
+
+-- Utiliza otro id autoincremental para identificar los seguimientos de usuarios.
+
+-- Quizá la eleccion de los nombres 'id_follower' e ' id_followee' vuelven loco a mas de uno que tenga que interactuar con la base de datos, son muy parecidos!
