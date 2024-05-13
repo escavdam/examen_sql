@@ -51,7 +51,9 @@ UPDATE usuarios
 SET password = 'miContraseñaEsIncreible90', puntos = '40'
 WHERE id = '1';
 
-
+-- En la tabla de mensajes, sería buena idea hacer el autor un campo NOT NULL
+-- De la misma forma, en la tabla followers el campo follower debería ser NOT NULL, no se puede hacer follow a nadie, además, usuarioThatFollows y follower deberían datos de tipo INTEGER, no TEXT
+-- Está bien, pero ten cuidado con esas inconsistencias, recuerda que SQLite da mucha libertad con los tipos, asi que no se queja si tiene que convertir tipos, ten cuidado!
 
 
 
