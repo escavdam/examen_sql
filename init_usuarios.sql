@@ -41,7 +41,7 @@ INSERT INTO Followers (id_follower, id_followee) VALUES (3, 1);
 
 UPDATE Usuarios SET nombre = 'idaira' WHERE id = 1;
 
--- Faltarian unas sentencias de DROP TABLE al principio de todo, para poder resetear la base de datos durante el desarrollo facilmente.
+-- Faltarian unas sentencias de DROP TABLE al principio de todo, para poder resetear la base de datos durante el desarrollo facilmente, si intentamos reiniciar multiples veces, este falla.
 
 -- Utiliza autoincrementos para tus id's en las tablas, no es necesario gestionarlas nosotros a mano.
 
