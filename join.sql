@@ -1,0 +1,1 @@
+SELECT usuarios.nombre, pedidos.producto AS ProductosComprados FROM usuarios JOIN pedidos ON usuarios.nombre = pedidos.id;
