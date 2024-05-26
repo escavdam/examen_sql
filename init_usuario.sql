@@ -45,6 +45,6 @@ WHERE nombre = 'Manolo';
 
 -- En la tabla de usuarios, el id debería ser un campo autoincremental, para que no se tenga que especificar en cada inserción, hacer esto puede llevar a inconsistencias en la base de datos y la manipulación de los datos.
 
--- En las sentencias de insercion de usuarios y mensajes faltan comas para separar los valores, el archivo no se ejecuta correctamente.
+-- En las sentencias de insercion de usuarios y mensajes faltan comas para separar los valores, el archivo no se ejecuta correctamente y la base de datos no se inicia como debería.
 
 -- Ten cuidado, hay bastantes inconsistencias en la estructura, revísala bien.

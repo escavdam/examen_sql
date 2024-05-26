@@ -25,29 +25,29 @@ Guarda tu inicio como `init_usuarios.sql`, asegúrate de borrar toda base de dat
 
 Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 
-6. ¿Como puedes saber que tablas existen en la base de datos?
+👍 6. ¿Como puedes saber que tablas existen en la base de datos?
 
 `.tables`
 
-7. ¿Como puedes saber de que datos se componen las tablas?
+👍 7. ¿Como puedes saber de que datos se componen las tablas?
 
 `.schema nombre_tabla`  ej `.schema usuarios`
 
-8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
+👍 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
 
 `SELECT * FROM usuarios LIMIT 5;`
 
-9. Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
+👍 9. Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
 
 `SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5;`
 
-10. Devuelve el numero de ciudades diferentes que existen en la tabla `usuarios`.
+👍 10. Devuelve el numero de ciudades diferentes que existen en la tabla `usuarios`.
 
 `SELECT COUNT(DISTINCT ciudad) AS num_ciudades FROM usuarios;`
 
 Solo necesitas `SELECT COUNT(DISTINCT ciudad) FROM usuarios;`, en este caso dar un alias no es necesario.
 
-11. Devuelve los usuarios con un balance superior a 10.000€.
+👍 11. Devuelve los usuarios con un balance superior a 10.000€.
 
 `SELECT * FROM usuarios WHERE balance > 10000;`
 
@@ -58,9 +58,8 @@ FROM usuarios
 JOIN pedidos ON usuarios.id = pedidos.usuario
 JOIN productos ON pedidos.producto = pedidos.id;
 ```
-👍👎
 
-13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
+👍 13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
 QUE CAMBIO HA HECHO Y COMO LO CORREGIRIAMOS encuentraR la celda que ha cambiado
 ~~~plain
 07MAY2024[18:32:12]: user #2831 logged in!
@@ -88,6 +87,6 @@ WHERE id = (
 );
 ```
 
-Nota: 7
+Nota: 6
 
-El examen está bien, pero este trimestre te has descuidado mucho y se nota, revisa bien SQL, es muy importante saber interactuar con bases de datos.
+El examen está bien, pero este trimestre te has descuidado mucho y se nota, revisa bien SQL, es muy importante saber interactuar con bases de datos. En especial echale un ojo a la correccion del init_usuario.sql
