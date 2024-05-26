@@ -94,3 +94,5 @@ WHERE id = (
 ```
 
 Nota: 9
+
+Está genial!! Le has pegado tremenda vuelta a SQL, aunque hay mucho que se puede hacer con el, esto deberia bastarte para comenzar a crear aplicaciones sin mucho problema.
