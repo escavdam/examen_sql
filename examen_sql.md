@@ -24,22 +24,32 @@ Asegúrate de que tu respuesta esta correctamente formateada en Markdown.
 Guarda tu inicio como `init_usuarios.sql`, asegúrate de borrar toda base de datos que hayas creado durante el ejercicio.
 
 Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
+ 
 
-6. ¿Como puedes saber que tablas existen en la base de datos?
+👍 6. ¿Como puedes saber que tablas existen en la base de datos? Desde la consola introducimos sqlite3 tienda.db para abrir sql en ese archivo, e introducimos el comando  SELECT COUNT(*) FROM sqlite_master WHERE type='table'; Hay 4.
 
-7. ¿Como puedes saber de que datos se componen las tablas?
+Correccion: Aunque esta bien, es mas fácil usar .tables dentro del CLI.
 
-8. Devuelve los 5 primeros usuarios de la tabla `usuarios`.
+👍 7. ¿Como puedes saber de que datos se componen las tablas? Con .tables vemos los nombres de las tablas que hay, y para ver su estructura lo hacemos con .schema seguido del nombre de la tabla, EJ: .schema usuarios. Las tablas son usuarios, pedidos y facturas.
 
-9. Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente.
+👍 8. Devuelve los 5 primeros usuarios de la tabla `usuarios`. Lo haremos con SELECT * FROM usuarios LIMIT 5; Los usuarios son 
+local-sub985, hyper_hyper756, mid-pona759, dude_ultra511, sub-resistencia998
 
-10. Devuelve el numero de paises diferentes que existen en la tabla `usuarios`.
+👍 1.  Devuelve los 5 primeros usuarios de la tabla `usuarios` ordenados por su balance de forma descendente. SELECT * FROM usuarios ORDER BY balance DESC LIMIT 5; 
 
-11. Devuelve los usuarios con un balance superior a 10.000€ en España.
+👎 2.   Devuelve el numero de paises diferentes que existen en la tabla `usuarios`. SELECT COUNT(DISTINCT ciudad) FROM usuarios; No hay paises. Son 49 ciudades
 
-12. Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
+Corrección: DISTINCT es una funcion, deberías usarla asi `DISTINCT(ciudad)`
 
-13. Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio:
+👍 3.   Devuelve los usuarios con un balance superior a 10.000€ en España.  SELECT * FROM usuarios WHERE balance > 10000; Son 5632 personas.
+
+👎 4.   Devuelve una tabla que muestre los productos que han sido comprados por los usuarios junto al nombre del usuario que lo ha comprado.
+SELECT usuarios.nombre AS nombre_usuario, productos AS nombre_producto
+FROM usuarios
+JOIN pedidos ON usuarios.id = pedidos.id_usuario
+JOIN productos ON pedidos.id_producto = productos.id;
+
+👎 1.    Whooops! Un junior furioso con acceso al backend hizo *algo*, ¡y no sabemos que es!, la única pista que tenemos es este log que alguien en el equipo pudo identificar al momento que hizo el cambio: Este ejercicio no he sabido hacerlo.
 
 ~~~plain
 07MAY2024[18:32:12]: user #2831 logged in!
@@ -47,3 +57,7 @@ Lo siguientes ejercicios se realizan sobre la base de datos `tienda.db`.
 07MAY2024[18:32:21]: 1 row updated in table 'usuarios'!
 07MAY2024[18:32:22]: user #31 bought product #32!
 ~~~
+
+Nota: 7
+
+Está bien, aunque algunos despistes te han bajado algo la nota, se que sabes pelearte con SQL y ganarle en general, buena!
