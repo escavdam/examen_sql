@@ -43,4 +43,4 @@ UPDATE usuarios SET nombre = 'Camacho' WHERE password = 'camachops';
 
 -- en la tabla followers, el usuario seguido no debe ser unico
 
--- el script funciona bien y vuelve a crear la base de datos aunque ya exista, genial!
+-- el script funciona bien y vuelve a crear la base de datos aunque ya exista, genial! Eso si, dale un repaso al concepto de Foreign Key.
